@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center mt-4" id="printable-area">
+    <div class="col-md-10">
+        <div class="glass-card p-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="text-white mb-0"><i class="fas fa-file-contract text-neon"></i> Security Assessment Report</h2>
+                <button onclick="window.print()" class="btn btn-outline-neon d-print-none"><i class="fas fa-print"></i> Print / Save PDF</button>
+            </div>
+            
+            <h5 class="text-muted mb-4">Prepared for: <span class="text-neon fw-bold">{{ current_user.username }}</span></h5>
+            
+            <hr class="border-neon mb-4">
+
+            {% if report and quiz %}
+            <div class="row text-center mb-5 mt-4">
+                <div class="col-md-4">
+                    <h5 class="text-muted">Date</h5>
+                    <p class="text-white fw-bold fs-5">{{ report.created_at.strftime('%B %d, %Y') }}</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-muted">Overall Score</h5>
+                    <div class="score-circle mx-auto d-flex align-items-center justify-content-center border-neon" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--neon-blue);">
+                        <h2 class="text-neon mb-0">{{ quiz.score }}%</h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-muted">Threat Level</h5>
+                    <p class="text-white fw-bold fs-5 p-2 rounded glass-panel d-inline-block">{{ quiz.level }}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <h4 class="text-neon">AI Analysis & Recommendations</h4>
+                    <div class="glass-panel p-4 mt-3">
+                        <p class="text-white mb-0" style="line-height: 1.8;">
+                            {{ report.recommendations }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <h5 class="text-success"><i class="fas fa-check-circle"></i> Recommended Next Steps</h5>
+                    <ul class="text-muted mt-2">
+                        <li>Enable Multi-Factor Authentication on critical accounts.</li>
+                        <li>Audit your passwords using the <a href="{{ url_for('password_checker') }}" class="text-neon d-print-none">Password Checker</a><span class="d-none d-print-inline">Password Checker</span>.</li>
+                        <li>Review the Phishing module in the <a href="{{ url_for('learning_hub') }}" class="text-neon d-print-none">Learning Hub</a><span class="d-none d-print-inline">Learning Hub</span>.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-info"><i class="fas fa-shield-alt"></i> Platform Status</h5>
+                    <ul class="text-muted mt-2">
+                        <li>Account Active: Yes</li>
+                        <li>Vulnerability Scan: Completed locally</li>
+                        <li>Data Encryption: Active (SQLite/Werkzeug)</li>
+                    </ul>
+                </div>
+            </div>
+
+            {% else %}
+            <div class="text-center p-5">
+                <i class="fas fa-exclamation-triangle text-warning fa-3x mb-3"></i>
+                <h3 class="text-white">No Report Found</h3>
+                <p class="text-muted">You need to take the Cyber Quiz before a report can be generated.</p>
+                <a href="{{ url_for('quiz') }}" class="btn btn-neon mt-3 d-print-none">Take Assessment Now</a>
+            </div>
+            {% endif %}
+            
+            </div>
+    </div>
+</div>
+
+<style>
+    @media print {
+        body.dark-theme {
+            background-color: white !important;
+            color: black !important;
+            background-image: none !important;
+        }
+        .glass-card, .glass-panel {
+            background: white !important;
+            border: 1px solid #ccc !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            color: black !important;
+        }
+        .text-white, .text-muted, .text-neon {
+            color: black !important;
+            text-shadow: none !important;
+        }
+        .border-neon {
+            border-color: #000 !important;
+        }
+        .navbar, .glass-footer {
+            display: none !important;
+        }
+        /* Hide links in print to make it look cleaner */
+        a { text-decoration: none !important; color: black !important; }
+    }
+</style>
+{% endblock %} 

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center align-items-center mt-5">
+    <div class="col-md-5">
+        <div class="glass-card p-5">
+            <h3 class="text-white mb-4 text-center">Join <span class="text-neon">CyberGuard</span></h3>
+            
+            <form method="POST" action="{{ url_for('register') }}">
+                <div class="mb-3">
+                    <label class="form-label text-muted">Username</label>
+                    <input type="text" name="username" class="form-control glass-input" required placeholder="Choose a username">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-muted">Email address</label>
+                    <input type="email" name="email" class="form-control glass-input" required placeholder="name@example.com">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label text-muted">Password</label>
+                    <input type="password" name="password" class="form-control glass-input" required placeholder="Create a strong password">
+                </div>
+                <button type="submit" class="btn btn-neon w-100">Create Account</button>
+            </form>
+            
+            <p class="text-center mt-4 text-muted">Already have an account? <a href="{{ url_for('login') }}" class="text-neon text-decoration-none">Login here</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

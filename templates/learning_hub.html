@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row mb-5 mt-4">
+    <div class="col-12 text-center">
+        <h1 class="display-5 fw-bold text-white mb-3"><i class="fas fa-book-reader text-neon"></i> Cyber <span class="text-neon">Learning Hub</span></h1>
+        <p class="lead text-muted">Master the fundamentals of digital security to protect yourself against modern threats. Study the modules below to improve your Cyber Survival Score.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <div class="glass-card p-4 h-100" style="border-color: var(--neon-blue);">
+            <h4 class="text-white"><i class="fas fa-layer-group text-primary"></i> The CIA Triad</h4>
+            <hr class="border-neon">
+            <p class="text-muted"><strong>What is it?</strong> The CIA Triad is the foundational model of all cybersecurity policies. It consists of three core principles that every organization must balance to keep their data secure.</p>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <h6 class="text-white"><i class="fas fa-user-secret text-warning"></i> Confidentiality</h6>
+                    <p class="text-muted small">Keeping sensitive data secret and ensuring only authorized people can view it. Achieved through <strong>Encryption</strong> and strong <strong>Passwords</strong>.</p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-white"><i class="fas fa-file-signature text-success"></i> Integrity</h6>
+                    <p class="text-muted small">Ensuring data remains accurate, trustworthy, and has not been tampered with by unauthorized users. Achieved through <strong>File Hashing</strong> and <strong>Access Controls</strong>.</p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-white"><i class="fas fa-server text-info"></i> Availability</h6>
+                    <p class="text-muted small">Ensuring that systems, networks, and data are actually accessible to authorized users when they need them. Achieved through <strong>Cloud Backups</strong> and <strong>DDoS Protection</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100">
+            <h4 class="text-white"><i class="fas fa-fish text-danger"></i> Phishing Attacks</h4>
+            <hr class="border-neon">
+            <p class="text-muted"><strong>What is it?</strong> Cybercriminals use fake emails or messages to trick you into revealing sensitive information like passwords or credit card numbers.</p>
+            <h6 class="text-white mt-3">Prevention Tips:</h6>
+            <ul class="text-muted">
+                <li>Check the sender's actual email address, not just the display name.</li>
+                <li>Look for typos and urgent, threatening language.</li>
+                <li>Never click unexpected links; navigate to the website manually.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100">
+            <h4 class="text-white"><i class="fas fa-key text-success"></i> Password Security & MFA</h4>
+            <hr class="border-neon">
+            <p class="text-muted"><strong>What is it?</strong> Weak passwords are the #1 cause of breaches. MFA (Multi-Factor Authentication) adds a second layer of security (like an OTP).</p>
+            <h6 class="text-white mt-3">Prevention Tips:</h6>
+            <ul class="text-muted">
+                <li>Use passphrases (e.g., "Blue$piderWalksFast!") instead of short passwords.</li>
+                <li>Never reuse passwords across different sites.</li>
+                <li>Always enable MFA on your email and banking accounts.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100">
+            <h4 class="text-white"><i class="fas fa-user-secret text-warning"></i> Social Engineering</h4>
+            <hr class="border-neon">
+            <p class="text-muted"><strong>What is it?</strong> Manipulating people into giving up confidential info. Attackers might pretend to be IT support, your boss, or a trusted organization.</p>
+            <h6 class="text-white mt-3">Prevention Tips:</h6>
+            <ul class="text-muted">
+                <li>Verify the identity of anyone asking for sensitive data.</li>
+                <li>Be highly skeptical of unexpected phone calls asking for technical access.</li>
+                <li>Remember: Banks will never ask for your PIN or password.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100">
+            <h4 class="text-white"><i class="fas fa-wifi text-info"></i> Public Wi-Fi Dangers</h4>
+            <hr class="border-neon">
+            <p class="text-muted"><strong>What is it?</strong> Hackers can easily intercept data transmitted over unsecured public Wi-Fi networks in cafes, airports, or hotels.</p>
+            <h6 class="text-white mt-3">Prevention Tips:</h6>
+            <ul class="text-muted">
+                <li>Use a reputable VPN (Virtual Private Network) to encrypt your traffic.</li>
+                <li>Avoid accessing bank accounts or entering passwords on public networks.</li>
+                <li>Turn off "Auto-connect" on your devices.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100">
+            <h4 class="text-white"><i class="fas fa-virus text-danger"></i> Malware & Ransomware</h4>
+            <hr class="border-neon">
+            <p class="text-muted"><strong>What is it?</strong> Malicious software designed to damage your device or steal data. Ransomware locks your files and demands payment to release them.</p>
+            <h6 class="text-white mt-3">Prevention Tips:</h6>
+            <ul class="text-muted">
+                <li>Never download software from unofficial or pirated websites.</li>
+                <li>Keep your operating system and antivirus software up to date.</li>
+                <li>Back up your important files regularly to an external drive or cloud.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100">
+            <h4 class="text-white"><i class="fas fa-mobile-alt text-success"></i> Mobile Security</h4>
+            <hr class="border-neon">
+            <p class="text-muted"><strong>What is it?</strong> Smartphones hold our entire digital lives. They are highly vulnerable to loss, theft, and malicious apps hidden in app stores.</p>
+            <h6 class="text-white mt-3">Prevention Tips:</h6>
+            <ul class="text-muted">
+                <li>Use biometric locks (Face ID/Fingerprint) and a strong screen PIN.</li>
+                <li>Only download applications from the official Google Play or Apple App Store.</li>
+                <li>Review app permissions (e.g., does a calculator app need access to your camera?).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100">
+            <h4 class="text-white"><i class="fas fa-user-shield text-info"></i> Data Privacy</h4>
+            <hr class="border-neon">
+            <p class="text-muted"><strong>What is it?</strong> Oversharing personal information online allows attackers to easily guess your security questions or craft targeted scams.</p>
+            <h6 class="text-white mt-3">Prevention Tips:</h6>
+            <ul class="text-muted">
+                <li>Set your social media profiles to private mode.</li>
+                <li>Never post pictures of your ID, boarding passes, or work badges.</li>
+                <li>Be cautious of online quizzes asking for your mother's maiden name or first pet.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100">
+            <h4 class="text-white"><i class="fas fa-shopping-cart text-warning"></i> Safe E-Commerce</h4>
+            <hr class="border-neon">
+            <p class="text-muted"><strong>What is it?</strong> Fake online stores and spoofed checkout pages are designed to harvest your credit card information during purchases.</p>
+            <h6 class="text-white mt-3">Prevention Tips:</h6>
+            <ul class="text-muted">
+                <li>Always look for "https://" and the padlock icon before entering payment details.</li>
+                <li>Use a credit card or a service like PayPal instead of a debit card for better fraud protection.</li>
+                <li>If a deal looks too good to be true, it is almost certainly a scam.</li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

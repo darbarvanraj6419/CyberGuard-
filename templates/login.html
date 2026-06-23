@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center align-items-center mt-5">
+    <div class="col-md-5">
+        <div class="glass-card p-5">
+            <div class="text-center mb-4">
+                <i class="fas fa-user-shield text-neon fa-3x mb-3"></i>
+                <h3 class="text-white">Welcome Back</h3>
+                <p class="text-muted">Sign in to access your dashboard</p>
+            </div>
+            
+            <form method="POST" action="{{ url_for('login') }}">
+                <div class="mb-3">
+                    <label class="form-label text-muted">Email address</label>
+                    <input type="email" name="email" class="form-control glass-input" required placeholder="Enter your email">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label text-muted">Password</label>
+                    <input type="password" name="password" class="form-control glass-input" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-neon w-100">Login to Dashboard</button>
+            </form>
+            
+            <p class="text-center mt-4 text-muted">Don't have an account? <a href="{{ url_for('register') }}" class="text-neon text-decoration-none">Register here</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

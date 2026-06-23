@@ -1,0 +1,78 @@
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: rgba(20, 25, 40, 0.6);
+    --neon-blue: #00f3ff;
+    --text-main: #e2e8f0;
+}
+
+body.dark-theme {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background-image: radial-gradient(circle at top right, rgba(0, 243, 255, 0.1), transparent 40%),
+                      radial-gradient(circle at bottom left, rgba(0, 243, 255, 0.05), transparent 40%);
+}
+
+.text-neon { color: var(--neon-blue); text-shadow: 0 0 5px rgba(0, 243, 255, 0.5); }
+.border-neon { border-color: var(--neon-blue) !important; box-shadow: 0 0 10px rgba(0, 243, 255, 0.2); }
+
+.glass-nav, .glass-card, .glass-panel, .glass-footer {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card { border-radius: 16px; transition: transform 0.3s ease; }
+.glass-card:hover { transform: translateY(-5px); border-color: rgba(0, 243, 255, 0.3); }
+
+.glass-input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+.glass-input:focus {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 8px rgba(0, 243, 255, 0.3);
+    color: #fff;
+}
+
+.btn-neon {
+    background-color: transparent;
+    color: var(--neon-blue);
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+    transition: all 0.3s;
+}
+.btn-neon:hover {
+    background-color: var(--neon-blue);
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+}
+
+.btn-outline-neon {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn-outline-neon:hover {
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+}
+
+.tool-card { border-radius: 10px; text-align: center; transition: 0.2s; }
+.tool-card:hover { background: rgba(0, 243, 255, 0.1); }
+/* --- TEXT READABILITY FIXES --- */
+.text-muted {
+    color: #a0aec0 !important; /* A much lighter, readable grey */
+    line-height: 1.6;
+}
+
+.glass-card strong {
+    color: #ffffff !important; /* Makes the "What is it?" text pure white */
+}
+
+ul.text-muted li {
+    margin-bottom: 8px; /* Adds a little breathing room between list items */
+}

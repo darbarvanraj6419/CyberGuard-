@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- 1. HERO SECTION -->
+<div class="row align-items-center min-vh-75 mt-5 mb-5 pt-4">
+    <div class="col-md-6">
+        <!-- REMOVED THE BADGE FROM HERE -->
+        <h1 class="display-4 fw-bold text-white mb-4">Secure Your <span class="text-neon">Digital Life</span></h1>
+        <p class="lead text-muted mb-4">An intelligent, AI-driven cybersecurity awareness platform built to educate, test, and protect against modern digital threats.</p>
+        
+        <a href="{{ url_for('login') }}" class="btn btn-neon btn-lg me-3 mb-2">Login to Start <i class="fas fa-arrow-right"></i></a>
+        <a href="{{ url_for('learning_hub') }}" class="btn btn-outline-neon btn-lg mb-2">Explore Hub</a>
+    </div>
+    <div class="col-md-6 text-center d-none d-md-block">
+        <i class="fas fa-network-wired text-neon" style="font-size: 15rem; filter: drop-shadow(0 0 30px rgba(0, 243, 255, 0.4));"></i>
+    </div>
+</div>
+
+<!-- 2. CORE FEATURES SECTION -->
+<div class="row mt-5 pt-5">
+    <div class="col-12 text-center mb-5">
+        <h2 class="text-white fw-bold">Intelligent <span class="text-neon">Security Tools</span></h2>
+        <p class="text-muted">Everything you need to audit your digital footprint.</p>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="glass-card p-4 text-center h-100">
+            <i class="fas fa-lock text-neon fa-3x mb-3"></i>
+            <h4 class="text-white">Password AI</h4>
+            <p class="text-muted">Analyze your password strength locally using advanced heuristics without ever sending it to a server.</p>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="glass-card p-4 text-center h-100">
+            <i class="fas fa-search-dollar text-neon fa-3x mb-3"></i>
+            <h4 class="text-white">Scam Detector</h4>
+            <p class="text-muted">Paste suspicious emails or SMS messages to detect phishing, urgency tactics, and fraud attempts instantly.</p>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="glass-card p-4 text-center h-100">
+            <i class="fas fa-brain text-neon fa-3x mb-3"></i>
+            <h4 class="text-white">Awareness Quiz</h4>
+            <p class="text-muted">Test your knowledge with our adaptive 15-question cyber survival assessment and get a customized report.</p>
+        </div>
+    </div>
+</div>
+
+<!-- 3. THREAT LANDSCAPE (STATISTICS) -->
+<div class="row mt-5 pt-5 pb-4">
+    <div class="col-12 text-center mb-5">
+        <h2 class="text-white fw-bold">Why <span class="text-danger">Cyber Awareness</span> Matters</h2>
+    </div>
+    <div class="col-md-3 col-6 mb-4">
+        <div class="glass-panel p-4 text-center h-100 border-0" style="background: rgba(255,0,0,0.05);">
+            <h2 class="display-5 text-white fw-bold">85<span class="text-danger">%</span></h2>
+            <p class="text-muted small mb-0">Of breaches involve a human element (Social Engineering).</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6 mb-4">
+        <div class="glass-panel p-4 text-center h-100 border-0" style="background: rgba(0,243,255,0.05);">
+            <h2 class="display-5 text-white fw-bold">3<span class="text-neon">B+</span></h2>
+            <p class="text-muted small mb-0">Fake phishing emails are sent worldwide every single day.</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6 mb-4">
+        <div class="glass-panel p-4 text-center h-100 border-0" style="background: rgba(255,0,0,0.05);">
+            <h2 class="display-5 text-white fw-bold">8<span class="text-danger">x</span></h2>
+            <p class="text-muted small mb-0">Increase in mobile malware and SMS phishing attacks.</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6 mb-4">
+        <div class="glass-panel p-4 text-center h-100 border-0" style="background: rgba(0,243,255,0.05);">
+            <h2 class="display-5 text-white fw-bold">9<span class="text-neon">M+</span></h2>
+            <p class="text-muted small mb-0">Comprehensive learning modules available in our Hub.</p>
+        </div>
+    </div>
+</div>
+
+<!-- 4. HOW IT WORKS (USER JOURNEY) -->
+<div class="row mt-5 pt-4">
+    <div class="col-12 text-center mb-5">
+        <h2 class="text-white fw-bold">Your Path to <span class="text-neon">Digital Safety</span></h2>
+    </div>
+    <div class="col-md-12">
+        <div class="glass-card p-5">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center mb-4 mb-md-0">
+                    <div class="rounded-circle border border-neon d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; background: rgba(0,243,255,0.1);">
+                        <h2 class="text-neon mb-0">1</h2>
+                    </div>
+                    <h5 class="text-white">Register</h5>
+                    <p class="text-muted small">Create your secure local profile.</p>
+                </div>
+                <div class="col-md-3 text-center mb-4 mb-md-0">
+                    <div class="rounded-circle border border-neon d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; background: rgba(0,243,255,0.1);">
+                        <h2 class="text-neon mb-0">2</h2>
+                    </div>
+                    <h5 class="text-white">Assess</h5>
+                    <p class="text-muted small">Take the Cyber Quiz to find your baseline.</p>
+                </div>
+                <div class="col-md-3 text-center mb-4 mb-md-0">
+                    <div class="rounded-circle border border-neon d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; background: rgba(0,243,255,0.1);">
+                        <h2 class="text-neon mb-0">3</h2>
+                    </div>
+                    <h5 class="text-white">Learn</h5>
+                    <p class="text-muted small">Study modules in the Learning Hub.</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="rounded-circle border border-neon d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; background: rgba(0,243,255,0.1);">
+                        <h2 class="text-neon mb-0">4</h2>
+                    </div>
+                    <h5 class="text-white">Secure</h5>
+                    <p class="text-muted small">Apply AI recommendations to your life.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 5. FINAL CALL TO ACTION -->
+<div class="row mt-5 pt-5 pb-5">
+    <div class="col-md-8 mx-auto text-center glass-panel p-5" style="border-radius: 20px; border-color: var(--neon-blue);">
+        <h2 class="text-white fw-bold mb-3">Ready to upgrade your defenses?</h2>
+        <p class="text-muted mb-4">Join the platform today and get your personalized cybersecurity risk report in less than 5 minutes.</p>
+        <a href="{{ url_for('register') }}" class="btn btn-neon btn-lg px-5 py-3 fw-bold">Create Free Account</a>
+    </div>
+</div>
+{% endblock %}

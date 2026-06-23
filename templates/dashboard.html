@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h2 class="text-white">Welcome, <span class="text-neon">{{ user.username }}</span>!</h2>
+        <p class="text-muted">Here is your security overview.</p>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Security Score Widget -->
+    <div class="col-md-4 mb-4">
+        <div class="glass-card p-4 text-center h-100">
+            <h5 class="text-white mb-3">Latest Security Score</h5>
+            {% if latest_quiz %}
+                <div class="score-circle mx-auto d-flex align-items-center justify-content-center border-neon" style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--neon-blue);">
+                    <h2 class="text-neon mb-0">{{ latest_quiz.score }}%</h2>
+                </div>
+                <p class="text-white mt-3 fw-bold">Level: {{ latest_quiz.level }}</p>
+                
+                <!-- BUTTONS UPDATED HERE -->
+                <div class="mt-4">
+                    <a href="{{ url_for('report') }}" class="btn btn-sm btn-outline-neon me-2">View Full Report</a>
+                    <a href="{{ url_for('quiz') }}" class="btn btn-sm btn-neon">Try Again <i class="fas fa-redo"></i></a>
+                </div>
+
+            {% else %}
+                <p class="text-muted mt-4">You haven't taken the assessment yet.</p>
+                <a href="{{ url_for('quiz') }}" class="btn btn-neon mt-3">Take Quiz</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Quick Tools -->
+    <div class="col-md-8 mb-4">
+        <div class="glass-card p-4 h-100">
+            <h5 class="text-white mb-4">Security Toolkit</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <a href="{{ url_for('password_checker') }}" class="text-decoration-none">
+                        <div class="glass-panel p-3 tool-card h-100">
+                            <i class="fas fa-key text-neon mb-2 fa-2x"></i>
+                            <h6 class="text-white mt-2">Password Checker</h6>
+                            <small class="text-muted">Audit your credentials</small>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <a href="{{ url_for('scam_detector') }}" class="text-decoration-none">
+                        <div class="glass-panel p-3 tool-card h-100">
+                            <i class="fas fa-shield-virus text-danger mb-2 fa-2x"></i>
+                            <h6 class="text-white mt-2">Scam Detector</h6>
+                            <small class="text-muted">Analyze suspicious texts</small>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <a href="{{ url_for('learning_hub') }}" class="text-decoration-none">
+                        <div class="glass-panel p-3 tool-card h-100">
+                            <i class="fas fa-book text-success mb-2 fa-2x"></i>
+                            <h6 class="text-white mt-2">Learning Hub</h6>
+                            <small class="text-muted">Study security modules to improve your score</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
