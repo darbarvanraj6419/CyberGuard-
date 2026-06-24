@@ -4,14 +4,12 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import re
-
 import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-super-secret-key' # Needed for sessions
 
 # --- WINDOWS DATABASE PATH FIX ---
-# This builds an absolute path to your current folder
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
 
@@ -52,6 +50,12 @@ class Report(db.Model):
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+# ==========================================
+# THE FIX: INITIALIZE DATABASE FOR GUNICORN
+# ==========================================
+with app.app_context():
+    db.create_all()
 
 # --- ROUTES ---
 
@@ -182,11 +186,5 @@ def report():
     latest_quiz = QuizResult.query.filter_by(user_id=current_user.id).order_by(QuizResult.created_at.desc()).first()
     return render_template('report.html', report=latest_report, quiz=latest_quiz)
 
-@app.route('/learning-hub')
-def learning_hub():
-    return render_template('learning_hub.html')
-
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
     app.run(debug=True)
