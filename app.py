@@ -15,9 +15,11 @@ app.config['SECRET_KEY'] = 'your-super-secret-key' # Needed for sessions
 db_url = os.environ.get('DATABASE_URL')
 
 if db_url:
-    # Fix for SQLAlchemy requiring 'postgresql://' instead of 'postgres://'
+    # Fix for SQLAlchemy requiring the pure-python 'pg8000' driver
     if db_url.startswith("postgres://"):
-        db_url = db_url.replace("postgres://", "postgresql://", 1)
+        db_url = db_url.replace("postgres://", "postgresql+pg8000://", 1)
+    elif db_url.startswith("postgresql://"):
+        db_url = db_url.replace("postgresql://", "postgresql+pg8000://", 1)
     app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 else:
     # Fallback to local SQLite if testing on your computer
@@ -63,7 +65,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 # ==========================================
-# THE FIX: INITIALIZE DATABASE FOR GUNICORN
+# INITIALIZE DATABASE FOR GUNICORN
 # ==========================================
 with app.app_context():
     db.create_all()
