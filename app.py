@@ -9,9 +9,20 @@ import os
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-super-secret-key' # Needed for sessions
 
-# --- WINDOWS DATABASE PATH FIX ---
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
+# ==========================================
+# CLOUD DATABASE SETUP (NEON POSTGRESQL)
+# ==========================================
+db_url = os.environ.get('DATABASE_URL')
+
+if db_url:
+    # Fix for SQLAlchemy requiring 'postgresql://' instead of 'postgres://'
+    if db_url.startswith("postgres://"):
+        db_url = db_url.replace("postgres://", "postgresql://", 1)
+    app.config['SQLALCHEMY_DATABASE_URI'] = db_url
+else:
+    # Fallback to local SQLite if testing on your computer
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
 
 db = SQLAlchemy(app)
 
@@ -186,9 +197,6 @@ def report():
     latest_quiz = QuizResult.query.filter_by(user_id=current_user.id).order_by(QuizResult.created_at.desc()).first()
     return render_template('report.html', report=latest_report, quiz=latest_quiz)
 
-# ==========================================
-# ADDED MISSING ROUTE HERE
-# ==========================================
 @app.route('/learning-hub')
 def learning_hub():
     return render_template('learning_hub.html')
