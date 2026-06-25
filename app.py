@@ -20,6 +20,11 @@ if db_url:
         db_url = db_url.replace("postgres://", "postgresql+pg8000://", 1)
     elif db_url.startswith("postgresql://"):
         db_url = db_url.replace("postgresql://", "postgresql+pg8000://", 1)
+        
+    # NEW FIX: Remove sslmode parameter that crashes pg8000
+    if "?sslmode=require" in db_url:
+        db_url = db_url.replace("?sslmode=require", "")
+        
     app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 else:
     # Fallback to local SQLite if testing on your computer
