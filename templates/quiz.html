@@ -15,14 +15,11 @@
 {% block scripts %}
 <script>
 const questions = [
-    // Original Questions
     {q: "What is the primary purpose of a phishing attack?", opts: ["To install antivirus", "To steal sensitive information", "To speed up internet", "To backup files"], a: 1},
     {q: "Which of these is the strongest password?", opts: ["password123", "Admin2023", "Tr33!H0us3#99", "qwerty"], a: 2},
     {q: "What does MFA stand for?", opts: ["Multi-Factor Authentication", "Multiple File Access", "Main Frame Authorization", "Modern Firewall Architecture"], a: 0},
     {q: "Is it safe to do online banking on public Wi-Fi?", opts: ["Yes", "No", "Only on weekends", "Only if using a VPN"], a: 3},
     {q: "What should you do if you receive an unexpected email with an attachment from an unknown sender?", opts: ["Open it immediately", "Forward it to friends", "Delete it without opening", "Reply and ask who they are"], a: 2},
-    
-    // New Questions (Mapped to Learning Hub)
     {q: "Which of the following is NOT a component of the CIA Triad?", opts: ["Confidentiality", "Integrity", "Authorization", "Availability"], a: 2},
     {q: "What is the most effective defense against a Ransomware attack?", opts: ["Paying the hacker quickly", "Maintaining regular offline backups", "Buying a new keyboard", "Clicking the 'Ignore' button"], a: 1},
     {q: "An attacker types malicious database commands into a website's login box to bypass security. What is this called?", opts: ["SQL Injection", "DDoS Attack", "Man-in-the-Middle", "Trojan Horse"], a: 0},
@@ -41,19 +38,55 @@ function loadQuestion() {
     
     const q = questions[currentQ];
     let html = `<h4 class="text-white mb-4">Question ${currentQ + 1} of ${questions.length}</h4>`;
-    html += `<p class="lead text-white fw-bold">${q.q}</p><div class="d-flex flex-column gap-3 mt-4 text-start">`;
+    html += `<p class="lead text-white fw-bold">${q.q}</p><div class="d-flex flex-column gap-3 mt-4 text-start" id="options-container">`;
     
+    // Render buttons
     q.opts.forEach((opt, i) => {
-        html += `<button class="btn btn-outline-neon text-start p-3" onclick="window.answer(${i})">${opt}</button>`;
+        html += `<button class="btn btn-outline-neon text-start p-3 option-btn" onclick="window.checkAnswer(${i}, this)">${opt}</button>`;
     });
+    
     html += `</div>`;
+    // Create an empty div to hold the feedback and "Next" button
+    html += `<div id="feedback-container" class="mt-4"></div>`;
+    
     container.innerHTML = html;
 }
 
-window.answer = function(index) {
-    if(index === questions[currentQ].a) {
+// NEW FUNCTION: Checks the answer without immediately skipping to the next question
+window.checkAnswer = function(selectedIndex, btnElement) {
+    const q = questions[currentQ];
+    const allOptions = document.querySelectorAll('.option-btn');
+    const feedbackBox = document.getElementById('feedback-container');
+    
+    // 1. Disable all buttons so the user can't click twice
+    allOptions.forEach(btn => {
+        btn.disabled = true;
+        btn.style.opacity = '0.7'; 
+    });
+
+    // 2. Check if correct and apply colors
+    if(selectedIndex === q.a) {
         score++;
+        btnElement.classList.replace('btn-outline-neon', 'btn-success');
+        btnElement.style.opacity = '1';
+        feedbackBox.innerHTML = `<h5 class="text-success fw-bold mb-3"><i class="fas fa-check-circle"></i> Correct!</h5>`;
+    } else {
+        btnElement.classList.replace('btn-outline-neon', 'btn-danger');
+        btnElement.style.opacity = '1';
+        
+        // Highlight the actual correct answer so they learn from it
+        allOptions[q.a].classList.replace('btn-outline-neon', 'btn-success');
+        allOptions[q.a].style.opacity = '1';
+        
+        feedbackBox.innerHTML = `<h5 class="text-danger fw-bold mb-3"><i class="fas fa-times-circle"></i> Incorrect.</h5>`;
     }
+    
+    // 3. Show the "Next Question" button
+    feedbackBox.innerHTML += `<button class="btn btn-neon px-5" onclick="window.nextQuestion()">Next <i class="fas fa-arrow-right ms-2"></i></button>`;
+}
+
+// NEW FUNCTION: Moves to the next question
+window.nextQuestion = function() {
     currentQ++;
     loadQuestion();
 }
