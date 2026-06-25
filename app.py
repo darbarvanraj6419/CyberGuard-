@@ -186,5 +186,12 @@ def report():
     latest_quiz = QuizResult.query.filter_by(user_id=current_user.id).order_by(QuizResult.created_at.desc()).first()
     return render_template('report.html', report=latest_report, quiz=latest_quiz)
 
+# ==========================================
+# ADDED MISSING ROUTE HERE
+# ==========================================
+@app.route('/learning-hub')
+def learning_hub():
+    return render_template('learning_hub.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
