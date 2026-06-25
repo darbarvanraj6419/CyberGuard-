@@ -7,6 +7,23 @@
     </div>
 </div>
 
+<div class="row mb-4">
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100" style="border-top: 3px solid var(--neon-blue);">
+            <h4 class="text-white"><i class="fas fa-question-circle text-neon"></i> What is Cybersecurity?</h4>
+            <hr class="border-neon">
+            <p class="text-muted">Cybersecurity is the practice of defending computers, servers, mobile devices, electronic systems, networks, and data from malicious attacks. It is the digital equivalent of locking your doors, installing a security system, and building a vault to keep intruders out of your personal and professional infrastructure.</p>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100" style="border-top: 3px solid var(--neon-blue);">
+            <h4 class="text-white"><i class="fas fa-shield-alt text-warning"></i> Why Do We Need It?</h4>
+            <hr class="border-neon">
+            <p class="text-muted">As our lives become entirely digital, sensitive data—ranging from personal photos to banking credentials, health records, and application source code—is stored online. Without strong cybersecurity, we are highly vulnerable to identity theft, financial extortion, and severe privacy breaches.</p>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-12 mb-4">
         <div class="glass-card p-4 h-100" style="border-color: var(--neon-blue);">
@@ -29,6 +46,7 @@
             </div>
         </div>
     </div>
+
     <div class="col-md-6 mb-4">
         <div class="glass-card p-4 h-100">
             <h4 class="text-white"><i class="fas fa-fish text-danger"></i> Phishing Attacks</h4>
@@ -101,6 +119,20 @@
 
     <div class="col-md-6 mb-4">
         <div class="glass-card p-4 h-100">
+            <h4 class="text-white"><i class="fas fa-horse-head text-warning"></i> Trojans & Spyware</h4>
+            <hr class="border-neon">
+            <p class="text-muted"><strong>What is it?</strong> Malware disguised as legitimate software (like a free game). Once installed, it quietly steals your data, logs keystrokes, or opens a "backdoor" for hackers.</p>
+            <h6 class="text-white mt-3">Prevention Tips:</h6>
+            <ul class="text-muted">
+                <li>Do not ignore browser warnings about unsafe downloads.</li>
+                <li>Read the reviews and check the publisher before installing browser extensions.</li>
+                <li>Run frequent deep-system scans with Windows Defender or similar tools.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100">
             <h4 class="text-white"><i class="fas fa-mobile-alt text-success"></i> Mobile Security</h4>
             <hr class="border-neon">
             <p class="text-muted"><strong>What is it?</strong> Smartphones hold our entire digital lives. They are highly vulnerable to loss, theft, and malicious apps hidden in app stores.</p>
@@ -140,6 +172,33 @@
             </ul>
         </div>
     </div>
-    
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100">
+            <h4 class="text-white"><i class="fas fa-database text-danger"></i> Web & Database Attacks</h4>
+            <hr class="border-neon">
+            <p class="text-muted"><strong>What is it?</strong> Attacks like SQL Injection occur when hackers type malicious code into website login forms to manipulate the backend database and bypass authentication.</p>
+            <h6 class="text-white mt-3">Prevention Tips:</h6>
+            <ul class="text-muted">
+                <li>Developers must sanitize all user inputs on their platforms.</li>
+                <li>Users should ensure they are logging into secure, professionally maintained websites.</li>
+                <li>Use a password manager to auto-fill logins safely.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-card p-4 h-100">
+            <h4 class="text-white"><i class="fas fa-network-wired text-info"></i> DDoS Attacks</h4>
+            <hr class="border-neon">
+            <p class="text-muted"><strong>What is it?</strong> A Distributed Denial of Service (DDoS) attack floods a server with massive amounts of fake internet traffic, causing the website to crash for real users.</p>
+            <h6 class="text-white mt-3">Prevention Tips:</h6>
+            <ul class="text-muted">
+                <li>This is primarily an infrastructure threat; businesses use tools like Cloudflare to absorb the traffic.</li>
+                <li>Home users should reboot their routers if their personal network is targeted.</li>
+                <li>Keep IoT devices (smart TVs, cameras) updated so they aren't hijacked into a botnet.</li>
+            </ul>
+        </div>
+    </div>
 </div>
 {% endblock %}
